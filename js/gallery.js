@@ -63,3 +63,11 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+const gallery = document.querySelector('ul');
+const galleryNew = images
+  .map(
+    elem =>
+      `<li class="img-list"><img src="${elem.preview}" alt ="${elem.description}" width= "360" height="300"></li>`
+  )
+  .join('');
+gallery.insertAdjacentHTML('afterbegin', galleryNew);
