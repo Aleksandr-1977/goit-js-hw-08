@@ -76,5 +76,5 @@ const galleryNew = images
   .join('');
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
 const itemPicture = document.querySelectorAll(".gallery");
-itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.target ===event.currentTarget) {return;} event.preventDefault();console.log("Hello");});});
+itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.target === event.currentTarget) {return;} event.preventDefault();console.log(event.target);});});
 
