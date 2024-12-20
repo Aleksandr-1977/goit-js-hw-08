@@ -75,3 +75,5 @@ const galleryNew = images
   )
   .join('');
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
+const dontDownloadPicture = document.querySelector("a.href");
+dontDownloadPicture.addEventListener("click", event =>{event.preventDefoult();})
