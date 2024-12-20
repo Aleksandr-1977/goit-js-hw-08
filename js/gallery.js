@@ -82,5 +82,5 @@ itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.t
 const modalWindows = basicLightbox.create(`
 	<img class="gallery-image" src="${elem.original}" alt ="${elem.description}" data-source="${elem.original}" width= "360" height="200"/>
 `)
-instance.show()
+modalWindows.show()
 
