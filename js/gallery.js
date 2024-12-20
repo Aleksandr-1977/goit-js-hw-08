@@ -77,9 +77,10 @@ const galleryNew = images
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
 const itemPicture = document.querySelectorAll(".gallery");
 itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.target === event.currentTarget) {return;} event.preventDefault();console.log(event.target);});});
-const instance = basicLightbox.create(`
-	<h1>Dynamic Content</h1>
-	<p>You can set the content of the lightbox with JS.</p>
+
+
+const modalWindows = basicLightbox.create(`
+	<img class="gallery-image" src="${elem.original}" alt ="${elem.description}" data-source="${elem.original}" width= "360" height="200"/>
 `)
 instance.show()
-console.log(instance);
+
