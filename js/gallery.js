@@ -69,7 +69,7 @@ const galleryNew = images
     elem =>
       `<li class="gallery-item">
      <a class="gallery-link" href="${elem.original}"> 
-      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="large-image.jpg" width= "360" height="200"/>
+      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="${elem.original}" width= "360" height="200"/>
       </a>
       </li>`
   )
@@ -77,4 +77,4 @@ const galleryNew = images
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
 const itemPicture = document.querySelectorAll(".gallery");
 itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.target ===event.currentTarget) {return;} event.preventDefault();console.log("Hello");});});
-// itemPicture.forEach(elem => {elem.addEventListener("click", event =>{console.log("Hello");});});
+
