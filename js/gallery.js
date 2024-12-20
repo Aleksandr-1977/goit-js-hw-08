@@ -77,5 +77,5 @@ const galleryNew = images
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
 const dontDownloadPicture = document.querySelectorAll(".gallery-link");
 dontDownloadPicture.forEach(link => {link.addEventListener("click", event =>{event.preventDefault();});});
-const clickImg = document.querySelectorAll(".gallery-image");
+const clickImg = document.querySelectorAll(".gallery");
 clickImg.forEach(elem => {elem.addEventListener("click", event =>{console.log("Hello");});});
