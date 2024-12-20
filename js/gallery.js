@@ -69,11 +69,11 @@ const galleryNew = images
     elem =>
       `<li class="gallery-item">
      <a class="gallery-link" href="${elem.original}"> 
-      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="large-image.jpg" width= "360" height="300"/>
+      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="large-image.jpg" width= "360" height="200"/>
       </a>
       </li>`
   )
   .join('');
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
-const dontDownloadPicture = document.querySelector(".href");
-dontDownloadPicture.addEventListener("click", event =>{event.preventDefoult();})
+const dontDownloadPicture = document.querySelector(".gallery-link");
+dontDownloadPicture.addEventListener("click", event =>{event.preventDefault();})
