@@ -69,20 +69,30 @@ const galleryNew = images
     elem =>
       `<li class="gallery-item">
      <a class="gallery-link" href="${elem.original}"> 
-      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="${elem.original}" width= "360" height="200"/>
+      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}"
+      data-source="${elem.original}" width= "360" height="200"/>
       </a>
       </li>`
   )
   .join('');
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
-const itemPicture = document.querySelectorAll(".gallery");
-itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.target === event.currentTarget) {return;} event.preventDefault();console.log(event.target);});
-const modalWindow = basicLightbox.create(`
-<img class="gallery-image" src="${itemPicture.original}" alt ="${itemPicture.description}" data-source="${itemPicture.original}" />
- 
-`);
-modalWindow.show();
-console.log(itemPicture);
+const itemPicture = document.querySelectorAll('.gallery');
+itemPicture.forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.target === event.currentTarget) {
+      return;
+    }
+    event.preventDefault();
+    const galleryCard = event.target.closest('.gallery-link');
+    const linkCard = galleryCard.href;
+    console.log(linkCard);
+    const modalWindow = basicLightbox.create(
+      `
+    <img class="image-modal" src="${linkCard}" />`,
+      {
+        className: 'modal',
+      }
+    );
+    modalWindow.show();
+  });
 });
-
-
