@@ -16,10 +16,11 @@ body {
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   row-gap: 24px;
   column-gap: 24px;
   list-style-type: none;
-  margin: auto;
+  margin: 0;
   padding: 0;
 }
 /* ===================/Task-2===================== */
