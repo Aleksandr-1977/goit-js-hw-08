@@ -24,4 +24,8 @@ body {
   margin: 0;
   padding: 0;
 }
+.gallery-item{
+  max-width: 360px;
+  max-height: 200px;
+}
 /* ===================/Task-2===================== */
