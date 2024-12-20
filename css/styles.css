@@ -29,7 +29,7 @@ body {
   max-height: 200px;
 }
 .gallery-item:hover{
-    cursor: pointer;
+    cursor: url("./cursor.png),pointer;
   color: blue;
 }
 /* ===================/Task-2===================== */
