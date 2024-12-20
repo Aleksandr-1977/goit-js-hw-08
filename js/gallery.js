@@ -67,7 +67,11 @@ const gallery = document.querySelector('ul');
 const galleryNew = images
   .map(
     elem =>
-      `<li class="img-list"><img src="${elem.preview}" alt ="${elem.description}" width= "360" height="300"></li>`
+      `<li class="gallery-item">
+     <a class="gallery-link" href="large-image.jpg"> 
+      <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="large-image.jpg" width= "360" height="300"/>
+      </a>
+      </li>`
   )
   .join('');
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
