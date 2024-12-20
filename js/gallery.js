@@ -77,10 +77,12 @@ const galleryNew = images
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
 const itemPicture = document.querySelectorAll(".gallery");
 itemPicture.forEach(link => {link.addEventListener("click", event =>{if (event.target === event.currentTarget) {return;} event.preventDefault();console.log(event.target);});});
+console.log(itemPicture);
 
-
-const modalWindows = basicLightbox.create(`
+const modalWindow = basicLightbox.create(`
+<div class="modal">
 	<img class="gallery-image" src="${elem.original}" alt ="${elem.description}" data-source="${elem.original}" width= "360" height="200"/>
+ </div>
 `)
-modalWindows.show()
+modalWindow.show()
 
