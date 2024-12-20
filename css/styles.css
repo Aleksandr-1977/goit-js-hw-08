@@ -28,7 +28,7 @@ body {
   max-width: 360px;
   max-height: 200px;
 }
-.gallery-link:hover{
-    cursor: url(./cursor.png),pointer;
+.gallery-image:hover{
+    cursor: url(../cursor.png),pointer;
  }
 /* ===================/Task-2===================== */
