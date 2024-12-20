@@ -68,7 +68,7 @@ const galleryNew = images
   .map(
     elem =>
       `<li class="gallery-item">
-     <a class="gallery-link" href="large-image.jpg"> 
+     <a class="gallery-link" href="${elem.original}"> 
       <img class="gallery-image" src="${elem.preview}" alt ="${elem.description}" data-source="large-image.jpg" width= "360" height="300"/>
       </a>
       </li>`
