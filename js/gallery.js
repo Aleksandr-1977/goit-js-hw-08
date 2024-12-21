@@ -81,7 +81,10 @@ const itemPicture = document.querySelector('.gallery');
 itemPicture.addEventListener('click', function (event) {
   // console.log(event.target.dataset.source);
   event.preventDefault();
-  if (event.target === event.currentTarget) {
+  // if (event.target === event.currentTarget) {
+  //   return;
+  // }
+  if (event.target.nodeName !== 'IMG') {
     return;
   }
   const galleryCard = event.target.closest('.gallery-image');
