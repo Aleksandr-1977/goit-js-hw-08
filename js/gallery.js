@@ -76,23 +76,23 @@ const galleryNew = images
   )
   .join('');
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
-const itemPicture = document.querySelectorAll('.gallery');
-itemPicture.forEach(link => {
-  link.addEventListener('click', event => {
-    if (event.target === event.currentTarget) {
-      return;
-    }
-    event.preventDefault();
-    const galleryCard = event.target.closest('.gallery-link');
-    const linkCard = galleryCard.href;
-    console.log(linkCard);
-    const modalWindow = basicLightbox.create(
-      `
+const itemPicture = document.querySelector('.gallery');
+
+itemPicture.addEventListener('click', function (event) {
+  // console.log(event.target.dataset.source);
+  event.preventDefault();
+  if (event.target === event.currentTarget) {
+    return;
+  }
+  const galleryCard = event.target.closest('.gallery-image');
+  const linkCard = galleryCard.dataset.source;
+  console.log(linkCard);
+  const modalWindow = basicLightbox.create(
+    `
     <img class="image-modal" src="${linkCard}" />`,
-      {
-        className: 'modal',
-      }
-    );
-    modalWindow.show();
-  });
+    {
+      className: 'modal',
+    }
+  );
+  modalWindow.show();
 });
