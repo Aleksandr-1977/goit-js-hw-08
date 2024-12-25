@@ -78,24 +78,81 @@ const galleryNew = images
 gallery.insertAdjacentHTML('afterbegin', galleryNew);
 const itemPicture = document.querySelector('.gallery');
 
+// itemPicture.addEventListener('click', function (event) {
+//   // console.log(event.target.dataset.source);
+//   event.preventDefault();
+//   // if (event.target === event.currentTarget) {
+//   //   return;
+//   // }
+//   if (event.target.nodeName !== 'IMG') {
+//     return;
+//   }
+//   const galleryCard = event.target.closest('.gallery-image');
+//   const linkCard = galleryCard.dataset.source;
+//   console.log(linkCard);
+//   const modalWindow = basicLightbox.create(
+//     `
+//     <img class="image-modal" src="${linkCard}" />`,
+//     {
+//       className: 'modal',
+//     }
+//   );
+//   modalWindow.show();
+// });
+let currentImageIndex = null;
+let modalWindow = null;
+
 itemPicture.addEventListener('click', function (event) {
-  // console.log(event.target.dataset.source);
   event.preventDefault();
-  // if (event.target === event.currentTarget) {
-  //   return;
-  // }
   if (event.target.nodeName !== 'IMG') {
     return;
   }
+
   const galleryCard = event.target.closest('.gallery-image');
   const linkCard = galleryCard.dataset.source;
-  console.log(linkCard);
-  const modalWindow = basicLightbox.create(
+  currentImageIndex = images.findIndex(image => image.original === linkCard);
+
+  modalWindow = basicLightbox.create(
     `
     <img class="image-modal" src="${linkCard}" />`,
     {
       className: 'modal',
+      onShow: () => {
+        window.addEventListener('keydown', onKeyPress);
+      },
+      onClose: () => {
+        window.removeEventListener('keydown', onKeyPress);
+      },
     }
   );
   modalWindow.show();
 });
+
+function onKeyPress(event) {
+  if (currentImageIndex === null) return;
+
+  if (event.key === 'ArrowRight') {
+    // Переключение на следующее изображение
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateModalImage();
+  } else if (event.key === 'ArrowLeft') {
+    // Переключение на предыдущее изображение
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateModalImage();
+  } else if (event.key === 'Escape') {
+    // Закрытие модального окна
+    if (modalWindow && modalWindow.visible()) {
+      modalWindow.close();
+    }
+  }
+}
+
+function updateModalImage() {
+  const newImage = images[currentImageIndex].original;
+
+  // Убедимся, что модальное изображение обновляется
+  const modalImage = document.querySelector('.image-modal');
+  if (modalImage) {
+    modalImage.src = newImage;
+  }
+}
